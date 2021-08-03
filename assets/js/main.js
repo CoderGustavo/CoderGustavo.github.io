@@ -21,6 +21,9 @@ $(function(){
     $(".menu-mobile").on('click', function(e){
         $('.menu').css("left","0");
     })
+    $("#topo").on('click', function(){
+        window.scrollTo(0, 0);
+    });
 });
 
 $(function(){
