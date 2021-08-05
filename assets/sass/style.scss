@@ -45,10 +45,7 @@ nav .menu a:focus{
     box-shadow: none;
 }
 nav .menu a.active{
-    color: $primarycolor;
-    .barra{
-        width: 80%;
-    }
+    color: $secondarycolor;
 }
 .barra{
     height: 2px;

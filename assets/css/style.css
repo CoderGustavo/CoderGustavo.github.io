@@ -37,9 +37,7 @@ nav .menu a:focus {
   box-shadow: none; }
 
 nav .menu a.active {
-  color: #3498ff; }
-  nav .menu a.active .barra {
-    width: 80%; }
+  color: #004892; }
 
 .barra {
   height: 2px;
