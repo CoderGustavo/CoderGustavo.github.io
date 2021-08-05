@@ -33,6 +33,14 @@ nav .barra {
   background-color: #fff;
   transition: .5s; }
 
+nav .menu a:focus {
+  box-shadow: none; }
+
+nav .menu a.active {
+  color: #3498ff; }
+  nav .menu a.active .barra {
+    width: 80%; }
+
 .barra {
   height: 2px;
   width: 0;
@@ -64,6 +72,17 @@ nav .barra {
 .redes a:hover {
   color: #3498ff;
   text-shadow: 5px 5px 13px #fff; }
+
+.filtros-portifolio a:focus {
+  box-shadow: none !important; }
+
+#imagens-portifolio > div > div {
+  display: none;
+  transition: 1s;
+  cursor: pointer; }
+
+#imagens-portifolio > div > div.active {
+  display: block; }
 
 #topo button {
   width: 50px;

@@ -64,4 +64,31 @@ $(function(){
     }
 
     typeWrite(texto);
+
+    $('.menu a').on('click', function(e) {
+        e.preventDefault();
+        var id = $(this).attr('href')
+        var targetOffset = $(id).offset().top;
+
+        $(this).addClass("active");
+        $(this).siblings().removeClass("active");
+                
+        $('html, body').animate({ 
+            scrollTop: targetOffset - 100
+        }, 100);
+    });
+
+    $('.filtros-portifolio a').on('click', function(e){
+        e.preventDefault();
+        $(this).addClass("active");
+        $(this).siblings().removeClass("active");
+        if($(this).attr("filtrar") == "todos"){
+            $("#imagens-portifolio > div > div").show();
+        }else{
+            var filtro = $(this).attr("filtrar");
+            $("#imagens-portifolio > div > div").hide();
+            $("#imagens-portifolio div[filtro="+filtro+"]").show();
+        }
+    });
+    $('.filtros-portifolio a[filtrar="todos"]').click();
 });
