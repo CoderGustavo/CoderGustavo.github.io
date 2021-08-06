@@ -74,13 +74,9 @@ nav .menu a.active {
 .filtros-portifolio a:focus {
   box-shadow: none !important; }
 
-#imagens-portifolio > div > div {
-  display: none;
+#imagens-portifolio > div {
   transition: 1s;
   cursor: pointer; }
-
-#imagens-portifolio > div > div.active {
-  display: block; }
 
 #topo button {
   width: 50px;

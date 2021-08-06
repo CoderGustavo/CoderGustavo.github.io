@@ -24,9 +24,7 @@ $(function(){
     $("#topo").on('click', function(){
         window.scrollTo(0, 0);
     });
-});
 
-$(function(){
     var texto = document.querySelector(".efeito-digitacao");
     var element = texto.innerHTML;
 
@@ -113,12 +111,13 @@ $(function(){
         e.preventDefault();
         $(this).addClass("active");
         $(this).siblings().removeClass("active");
+
         if($(this).attr("filtrar") == "todos"){
-            $("#imagens-portifolio > div > div").show();
+            $("#imagens-portifolio > div").show(0);
         }else{
             var filtro = $(this).attr("filtrar");
-            $("#imagens-portifolio > div > div").hide();
-            $("#imagens-portifolio div[filtro="+filtro+"]").show();
+            $("#imagens-portifolio > div").hide(0);
+            $("#imagens-portifolio div[filtro="+filtro+"]").show(0);
         }
     });
 
