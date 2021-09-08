@@ -9,6 +9,28 @@ $secondarycolor: #004892;
     box-sizing: border-box;
 }
 
+
+body::-webkit-scrollbar {
+    width: 8px;               /* width of the entire scrollbar */
+    position: absolute;
+    right: 0;
+}
+
+body::-webkit-scrollbar-track {
+    background: #ccc;        /* color of the tracking area */
+    position: absolute;
+    right: 0;
+}
+
+body::-webkit-scrollbar-thumb {
+    position: absolute;
+    right: 0;
+    background-color: #888;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid #888;  /* creates padding around scroll thumb */
+    margin: 1px;
+}
+
 a{
     text-decoration: none;   
 }
@@ -95,7 +117,51 @@ nav .menu a.active{
 #topo{
     transition: 1s;
 }
-
+.div-portifolio{
+    overflow: hidden;
+}
+.div-portifolio:hover{
+    .hover-portifolio{
+        opacity: 1;
+    }
+}
+.hover-portifolio{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    transition: 1s;
+    top: 0;
+    opacity: 0;
+}
+.btn-img-portifolio:hover{
+    color: $secondarycolor !important;
+    transform: scale(1.2);
+}
+%borda-img-portifolio{
+    position: absolute;
+    height: 30%;
+    width: 30%;
+}
+.borda-img-portifolio-cima{
+    @extend %borda-img-portifolio;
+    top: 0;
+    right: 0;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    margin: 1rem
+}
+.borda-img-portifolio-baixo{
+    @extend %borda-img-portifolio;
+    bottom: 0;
+    left: 0;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    margin: 1rem
+}
 
 @keyframes efeito-digitacao{
     0%, 100%{
@@ -104,4 +170,36 @@ nav .menu a.active{
     50%{
         opacity: 0;
     }
+}
+
+
+// inicio edutricot
+.banner-portifolio{
+    position: relative;
+}
+.banner-portifolio-suave{
+    background: linear-gradient(transparent, rgb(255, 255, 255));
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+.banner-portifolio-link{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45pt;
+    z-index: 2;
+}
+.banner-portifolio-link a{
+    color: #222;
+    transition: .8s;
+}
+.portifolio-espec .banner-portifolio-link a:hover{
+    color: #dc3545;
+    transform: scale(1.5);
 }

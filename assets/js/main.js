@@ -113,13 +113,14 @@ $(function(){
         $(this).siblings().removeClass("active");
 
         if($(this).attr("filtrar") == "todos"){
-            $("#imagens-portifolio > div").show(0);
+            $("#imagens-portifolio > div").fadeIn(100);
         }else{
             var filtro = $(this).attr("filtrar");
-            $("#imagens-portifolio > div").hide(0);
-            $("#imagens-portifolio div[filtro="+filtro+"]").show(0);
+            $("#imagens-portifolio > div").fadeOut(100);
+            $("#imagens-portifolio div[filtro="+filtro+"]").fadeIn(100);
         }
     });
-
     $('.filtros-portifolio a[filtrar="todos"]').click();
+
+    
 });
