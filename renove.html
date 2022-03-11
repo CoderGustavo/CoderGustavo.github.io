@@ -13,7 +13,6 @@
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
 </head>
 <body>
     <div class="social-media">
@@ -22,13 +21,6 @@
         <a href="https://www.linkedin.com/in/gustavo-ornaghi-antunes-713ba91b3/" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="https://instagram.com/codergustavo" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/5535997187688" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    </div>
-    <div class="gallery">
-        <div class="back-img"><i class="fal fa-angle-left"></i></div>
-        <div class="imgs-of-gallery">
-        </div>
-        <div class="next-img"><i class="fal fa-angle-right"></i></div>
-        <div class="close-gallery"><i class="fal fa-times"></i></div>
     </div>
     <header id="home" class="container-fluid">
         <div class="container d-flex align-items-center justify-content-between">
@@ -41,144 +33,46 @@
                 </svg>                                   
             </a>
             <nav class="d-flex align-items-center justify-content-around">
-                <a href="#home" class="activate">Home</a>
-                <a href="#aboutme">About me</a>
-                <a href="#services">Services</a>
-                <a href="#myprojects">My projects</a>
+                <a href="edutricot.html">Edu tricot</a>
+                <a href="veloxstore.html">Velox store</a>
+                <a href="delicious.html">Delicious Hamburgueria</a>
+                <a href="renove.html" class="activate">Renove 21</a>
                 <div class="bar_bottom"></div>
             </nav>
         </div>
     </header>
-    <div class="hero container-fluid d-flex align-items-center">
+    <div class="hero hero-project" style="height: 80vh;">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8 d-flex align-items-start justify-content-center flex-column">
-                    <h1 id="hero-title">Hi, my<br>name is <span class="text-primarycolor name">Gustavo</span></h1>
-                    <h2 class="text-light salsa-font">And I'm a web developer</h2>
-                </div>
-                <div class="col-md-4 d-flex align-items-end justify-content-center">
-                    <img src="assets/img/pc.svg" alt="eu mexendo no pc" class="img-pc">
-                </div>
-            </div>
-            <div class="brush brush-1"></div>
-            <div class="brush brush-2"></div>
+            <img src="assets/img/renove21.png" alt="renove21" title="print renove21" class="img-fluid">
         </div>
     </div>
-    <section id="aboutme" class="container-fluid">
+    <section>
         <div class="container">
-            <div class="d-flex align-items-center justify-content-between">
-                <h2 class="subtitle">
-                    About me
-                </h2>
-                <div></div>
+            <div class="d-flex align-items-center justify-content-center">
+                <h2 class="subtitle">About the project</h2>
             </div>
-            <div class="row d-flex justify-content-center align-items-center h-100 content">
-                <div class="col-md-8 d-flex justify-content-start align-items-center h-100">
-                    <p>
-                        My name is Gustavo, I live in an interior city of MG in Brazil,
-                        I have knowledge in some tecnologies who I use in my personal and professional projects, they are some HTML5, CSS3, Bootstrap, Js, Jquery, MySQL, PHP, Laravel, Python.
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <img src="assets/img/perfil.svg" alt="minha foto" title="EU :)" class="img-perfil">
-                </div>
+            <div class="d-flex justify-content-center">
+                <p class="fs-5 text-light">This project was made to help my father to start sell online</p>
             </div>
         </div>
     </section>
-    <section id="services" class="container-fluid">
-        <div class="container h-100">
-            <div class="d-flex align-items-center justify-content-between">
-                <h2 class="subtitle">Services</h2>
-                <div></div>
+    <section>
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-center">
+                <h2 class="subtitle">Tecnologies used</h2>
             </div>
-            <div class="row d-flex align-items-center content" style="height: 90%;">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="icon-service">
-                            <img src="assets/img/responsive.gif" alt="website" width="200px">
-                        </div>
-                        <div class="card-title">
-                            <h3 class="text-light">Website</h3>
-                        </div>
-                        <div class="card-body">
-                            <p class="text-light">
-                                Do you need a website to show your product, service for your clients? I can solve this problem for you!
-                            </p>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center mb-5"><a href="" class="btn-typeme">Type me</a></div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="icon-service">
-                            <img src="assets/img/robot.gif" alt="robot" width="180px">
-                        </div>
-                        <div class="card-title">
-                            <h3 class="text-light">Bot automatization</h3>
-                        </div>
-                        <div class="card-body">
-                            <p class="text-light">
-                                Using my bots automatizations, you will relax when he works for you!
-                            </p>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center mb-5"><a href="" class="btn-typeme">Type me</a></div>
-                    </div>
-                </div>
+            <div class="d-flex justify-content-center">
+                <p class="fs-5 text-light">The tecnologies used in this project were html5, css3, javascript, jquery, php, bootstrap 5, mysql, laravel 8</p>
             </div>
-            <div class="ball-center"><img src="assets/img/bola.svg" alt="bola" width="400px"></div>
         </div>
     </section>
-    <section id="myprojects" class="container-fluid">
+    <section>
         <div class="container">
-            <div class="d-flex align-items-center justify-content-between">
-                <h2 class="subtitle">My projects</h2>
-                <div></div>
+            <div class="d-flex align-items-center justify-content-center">
+                <h2 class="subtitle">Funcionalities</h2>
             </div>
-            <div class="d-flex gap-3 content justify-content-center">
-                <div class="p-2 d-flex gap-2 flex-wrap justify-content-center">
-                    <div class="card card-projects" style="max-width: 500px; width: 500px; height: 300px;">
-                        <div class="imgs-gallery" goto="#opengallery" img-number="1">
-                        </div>
-                        <div goto="#opengallery" class="about-img">
-                            <h3 class="text-center fs-5">Edu tricot</h3>
-                            <div class="d-flex links-img">
-                                <a href="edutricot.html"><i class="fas fa-info"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-projects" style="max-width: 500px; width: 500px; height: 300px;">
-                        <div class="imgs-gallery" goto="#opengallery" img-number="2">
-                        </div>
-                        <div goto="#opengallery" class="about-img">
-                            <h3 class="text-center fs-5">Velox Store</h3>
-                            <div class="d-flex links-img">
-                                <a href="veloxstore.html"><i class="fas fa-info"></i></a>
-                                <a href="https://veloxstore.com.br"><i class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-projects" style="max-width: 500px; width: 500px; height: 300px;">
-                        <div class="imgs-gallery" goto="#opengallery" img-number="3">
-                        </div>
-                        <div goto="#opengallery" class="about-img">
-                            <h3 class="text-center fs-5">Delicious Hamburgueria</h3>
-                            <div class="d-flex links-img">
-                                <a href="delicious.html"><i class="fas fa-info"></i></a>
-                                <a href="https://tcc.veloxstore.com.br"><i class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-projects" style="max-width: 500px; width: 500px; height: 300px;">
-                        <div class="imgs-gallery" goto="#opengallery" img-number="4">
-                        </div>
-                        <div goto="#opengallery" class="about-img">
-                            <h3 class="text-center fs-5">Renove 21</h3>
-                            <div class="d-flex links-img">
-                                <a href="renove.html"><i class="fas fa-info"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="d-flex justify-content-center">
+                <p class="fs-5 text-light">In this project there are some funcionalities such as add some model to order, the user can edit, add more models and then he can finish the order, the user also can subscribe in a plan then he has discount in his order and there is a management area for employees</p>
             </div>
         </div>
     </section>
