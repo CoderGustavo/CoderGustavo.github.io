@@ -1,126 +1,133 @@
-$(function(){
-    $(".menu a").on('mouseover', function(){
-        $(this).find(".barra").css("width", "80%");
-    });
-    $(".menu a").on('mouseout', function(){
-        $(this).find(".barra").css("width", "0");
-    });
-    $("#topo").hide();
-    $(document).scroll(function(){
-        if($(document).scrollTop() != 0){
-            $('nav').css("background-color", "#00000080");
-            $("#topo").show(100);
+$(()=>{
+    //redireciona usuario para pagina que o atributo goto manda
+    $("[goto]").on("click", (e)=>{ 
+        if($(e.currentTarget).attr("goto") === "#opengallery"){
+            $(".gallery").show();
+            $("body").css("overflow-y", "hidden");
         }else{
-            $('nav').css("background-color", "transparent");
-            $("#topo").hide(100);
+            window.location.href = $(e.currentTarget).attr("goto");
         }
     });
-    $(".fechar-mobile").on('click', function(){
-        $('.menu').css("left","200%");
-    });
-    $(".menu-mobile").on('click', function(e){
-        $('.menu').css("left","0");
-    })
-    $("#topo").on('click', function(){
-        window.scrollTo(0, 0);
+
+    //imagens do projeto
+    const imgs = ["assets/img/edutricot.png", "assets/img/velox.png", "assets/img/delicious.png", "assets/img/renove21.png"];
+
+    //seta as imagens correspondentes em cada card
+    const imgElements = document.querySelectorAll(".imgs-gallery");
+    let i = 0;
+    imgElements.forEach(element => {
+        let currentImg = imgs[parseInt($(element).attr("img-number"))-1];
+        $(element).css("background-image", "url("+currentImg+")");
+        $(".imgs-of-gallery").append("<div class='align-items-center justify-content-center imgs'><img src='"+currentImg+"'></div>");
+        i += 1
     });
 
-    var texto = document.querySelector(".efeito-digitacao");
-    var element = texto.innerHTML;
+    //seta as imagens na galleria
+    let i2 = 0;
+    let active_img = 0;
+    const imgsGallery = document.querySelectorAll(".imgs-of-gallery .imgs")
+    imgsGallery.forEach(element => {
+        if(i2 == 0){
+            $(element).show();
+        }else{
+            $(element).hide();
+        }
+        i2 +=1
+    });
+    i2=0
 
-    function typeWrite(elemento){
-        const textoArray = elemento.innerHTML.split('');
-        elemento.innerHTML = ' ';
-        
-        textoArray.forEach(function(letra, i){   
-            setTimeout(function(){
-                elemento.innerHTML += letra;
-            }, 100 * i)
+    //next-img of gallery
+    $(".next-img").on("click", ()=>{
+        if(imgsGallery.length - 1 === active_img){
+            active_img = 0;
+        }else{
+            active_img += 1;
+        }
+        imgsGallery.forEach(element => {
+            if(active_img === i2){
+                $(element).show(500);
+            }else{
+                $(element).hide(500);
+            }
+            i2 += 1;
         });
+        i2 = 0;
+    });
+
+    //back-img of gallery
+    $(".back-img").on("click", ()=>{
+        if(active_img === 0){
+            active_img = imgsGallery.length - 1;
+        }else{
+            active_img -= 1;
+        }
+        imgsGallery.forEach(element => {
+            if(active_img === i2){
+                $(element).show(500);
+            }else{
+                $(element).hide(500);
+            }
+            i2 += 1;
+        });
+        i2 = 0;
+    });
+
+    //fechar gallery
+    $(".close-gallery").on("click", ()=>{
+        $(".gallery").hide();
+        $("body").css("overflow-y", "auto");
+    });
+    
+    let leftCurrentBarBottom, widthCurrentBarBottom;
+
+    const setBarNav = ()=>{
         
-        setTimeout(function(){
-            var aa = elemento.innerHTML;
-            textoArray.forEach(function(letra, i){   
-                setTimeout(function(){
-                    elemento.innerHTML = aa.slice(0, -i-1);
-                }, 100 * i)
-            });
-            setTimeout(function(){
-                mudartexto(elemento);
-            }, 2000)
-        }, 2000);
-    }
-    
-    function mudartexto(elemento){
-        if(element == "Front-End Web"){
-            elemento.innerHTML = "Back-End Web";
-        }else{
-            elemento.innerHTML = "Front-End Web";
-        }
-        element = elemento.innerHTML;
-        typeWrite(elemento);
-    }
-
-    typeWrite(texto);
-
-    $('.menu a').on('click', function(e) {
-        e.preventDefault();
-        var id = $(this).attr('href')
-        var targetOffset = $(id).offset().top;
-
-        $(this).addClass("active");
-        $(this).siblings().removeClass("active");
-                
-        $('html, body').animate({ 
-            scrollTop: targetOffset - 100
+        leftCurrentBarBottom = $("header nav a.activate").offset().left+parseInt($("header nav a.activate").css("padding-left"))-(($("header nav a.activate").width()*1.5 - $("header nav a.activate").width())/2);
+        widthCurrentBarBottom = $("header nav a.activate").width()*1.5
+        
+        $(".bar_bottom").animate({
+            left: leftCurrentBarBottom,
+            width: widthCurrentBarBottom
         }, 100);
-    });
-    $('.menu a[href="#inicio"]').click();
+    }
 
-    const altura_sobre = $("#sobre").offset().top;
-    const altura_servicos = $("#servicos").offset().top;
-    const altura_portifolio = $("#portifolio").offset().top;
-    const altura_contato = $("#contato").offset().top;
-    
-    $(document).on("scroll", function(){
-        var altura_documento = ($(window).scrollTop())+150;
-        if(altura_documento < altura_sobre){
-            $('.menu a[href="#inicio"]').addClass("active");
-            $('.menu a[href="#inicio"]').siblings().removeClass("active");
-        }
-        if(altura_documento >= altura_sobre && altura_documento <= altura_servicos){
-            $('.menu a[href="#sobre"]').addClass("active");
-            $('.menu a[href="#sobre"]').siblings().removeClass("active");
-        }
-        if(altura_documento >= altura_servicos && altura_documento <= altura_portifolio){
-            $('.menu a[href="#servicos"]').addClass("active");
-            $('.menu a[href="#servicos"]').siblings().removeClass("active");
-        }
-        if(altura_documento >= altura_portifolio && altura_documento <= altura_contato){
-            $('.menu a[href="#portifolio"]').addClass("active");
-            $('.menu a[href="#portifolio"]').siblings().removeClass("active");
-        }
-        if(altura_documento >= altura_contato){
-            $('.menu a[href="#contato"]').addClass("active");
-            $('.menu a[href="#contato"]').siblings().removeClass("active");
-        }
-    });
-    
+    setBarNav();
 
-    $('.filtros-portifolio a').on('click', function(e){
+    $("header nav a").on('click', (e)=>{
         e.preventDefault();
-        $(this).addClass("active");
-        $(this).siblings().removeClass("active");
-
-        if($(this).attr("filtrar") == "todos"){
-            $("#imagens-portifolio > div").fadeIn(100);
+        $(e.currentTarget).addClass("activate");
+        $(e.currentTarget).siblings().removeClass("activate");
+        let element = $(e.currentTarget).attr("href");
+        if(element === "#home"){
+            $('html, body').animate({
+                scrollTop: 0
+            }, 500)
         }else{
-            var filtro = $(this).attr("filtrar");
-            $("#imagens-portifolio > div").fadeOut(100);
-            $("#imagens-portifolio div[filtro="+filtro+"]").fadeIn(100);
+            $('html, body').animate({
+                scrollTop: $(element).offset().top*0.7
+            }, 500)
         }
     });
-    $('.filtros-portifolio a[filtrar="todos"]').click();
 
-    
+    $(window).scroll(function(){
+        const top = window.pageYOffset + window.innerHeight*0.70;
+        if(top <= window.innerHeight){
+            $("header nav a[href='#home']").addClass("activate");
+        }
+        const sections = document.querySelectorAll("section");
+        setTimeout(() => {
+            setBarNav();
+        }, 500);
+        
+        $("header nav a").each(function(){
+            sections.forEach(element =>{
+                if(top > element.offsetTop){
+                    $("a[href='#"+$(element).attr("id")+"']").addClass("activate");
+                    $("a[href='#"+$(element).attr("id")+"']").siblings().removeClass("activate");
+                }else{
+                    $("a[href='#"+$(element).attr("id")+"']").removeClass("activate")
+                }
+            })
+        });
+    });
 });
